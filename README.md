@@ -4,6 +4,12 @@ Your silly dateTime companion
 > [!WARNING]  
 > Stampy is in early development stage. Its code base is messy and it's likely full of bugs. I will still use it in production nonetheless.
 
+## Usage
+```js
+const { Stampy } = require('./Stampy')
+const stampy = new Stampy()
+```
+
 ## Examples
 
 ### Convert time
@@ -46,7 +52,7 @@ stampy.use('now').plus('year', 1).isBefore('now')
 ```
 
 
-### Miliseconds since time until now
+### Milliseconds since time until now
 ```js
 stampy.use('2000-5-2').toNow
 // Returns: 734478844102
