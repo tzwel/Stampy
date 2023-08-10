@@ -27,7 +27,8 @@ stampy.use(1691696155340).minus('day', 8) // Subtract 8 days
 stampy.use('now').plus('year', 2).relativeTo('now')
 // Returns: 'In 2 years'
 
-// The above can also be written like this. Stampy's default time and `relativeTo` default time is always `now`.
+// The above can also be written like this.
+// Stampy's default time and `relativeTo` default time is always `now`.
 stampy.plus('year', 2).relativeTo()
 // Returns: 'In 2 years'
 
