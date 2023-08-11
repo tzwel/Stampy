@@ -35,20 +35,26 @@ class Stampy {
 	  	return this;
 	}
 
-	isPast(v) {
+	isPast(v, times = 1) {
 		v = convertToTimestamp(v)
+
 		let isPast = false
 
-		if (this.value > v) {
+		if (units[v]) {
+			isPast = this.value > units[v]*times
+		} else if (this.value > v){
 			isPast = true
 		}
+
 		return isPast
 	}
 
 	isBefore(v) {
 		v = convertToTimestamp(v)
 		let isBefore = false
-		if (this.value < v) {
+		if (units[v]) {
+			isBefore = this.value < units[v]*times
+		} else if (this.value < v){
 			isBefore = true
 		}
 		return isBefore
@@ -169,6 +175,11 @@ const units = {
 
 function convertToTimestamp(input) {
 	const isDate = input instanceof Date
+
+	if (units[input]) {
+		return input
+	}
+
 	if (!isDate) {
 		switch (input) {
 			case 'now':
